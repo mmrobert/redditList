@@ -1,5 +1,5 @@
 //
-//  DataSource.swift
+//  DataSourceRepo.swift
 //  RedditList
 //
 //  Created by boqian cheng on 2020-08-12.
@@ -10,14 +10,43 @@ import Foundation
 
 class DataSourceRepo {
     
+    // datasource update listening
+    typealias Listener = (Result42<[Post], Error>) -> ()
+    
     static let shared = DataSourceRepo()
     
-    private var posts: [Post] = []
-    private var fetchErr: Error?
+    private var listeners: [Listener]
     
-    private init() {}
+    private var posts: [Post] {
+        didSet {
+            for listener in listeners {
+                let newResult = Result42<[Post], Error>.success(posts)
+                listener(newResult)
+            }
+        }
+    }
+    private var fetchErr: Error? {
+        didSet {
+            if let err = fetchErr {
+                for listener in listeners {
+                    let newResult = Result42<[Post], Error>.failure(err)
+                    listener(newResult)
+                }
+            }
+        }
+    }
+    
+    private init() {
+        posts = []
+        listeners = []
+    }
+    
+    func addListener(listener: @escaping Listener) {
+        self.listeners.append(listener)
+    }
     
     func fetchPosts() {
+        
         let postRouter = RedditAPI.posts(queryParas: nil, bodyParas: nil)
         do {
             let netRequest = try postRouter.getURLRequest()
@@ -39,6 +68,4 @@ class DataSourceRepo {
             self.fetchErr = error
         }
     }
-    
-    
 }

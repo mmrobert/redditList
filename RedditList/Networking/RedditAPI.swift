@@ -10,14 +10,6 @@ import Foundation
 
 enum RedditAPI {
     
-    // for swift 4.2 which has no "Result" type
-    enum Result42<Success, Failure> where Failure : Error {
-        // A success, storing a 'Success' value.
-        case success(Success)
-        // A failure, storing a 'Failure' value.
-        case failure(Failure)
-    }
-    
     enum RequestMethod: String {
         case get     = "GET"
         case post    = "POST"
@@ -31,6 +23,7 @@ enum RedditAPI {
         case returnedDataNil
     }
     
+    // for each endpoind of backend
     case posts(queryParas: [String:String]?, bodyParas: [String:String]?)
     
     // MARK: - base URL
