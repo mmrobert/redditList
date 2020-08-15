@@ -10,5 +10,5 @@ Loblaws
 7. Architecture:
     
                               DataModel
-                  (using)         |            (binding)               (binding)
+                  (using)         |            (binding)                   (binding)
      NetworkAPI <---------- DataSource Repo  ---------------------- ViewModel ------------------ View(controller, client)
