@@ -9,8 +9,6 @@ Loblaws
 6. For article body, 'media_embed' is not included for display,
 7. Architecture:
     
-                           DataModel
-                 (using)       |          (binding)
-     NetworkAPI <--------- DataSource Repo  ------------------- ViewModel
-                                                                                                           | (binding)
-                                                                                             View(controller, client)
+                              DataModel
+                  (using)         |               (binding)               (binding)
+     NetworkAPI <---------- DataSource Repo  ---------------- ViewModel ------------ View(controller, client)
