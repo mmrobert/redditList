@@ -16,6 +16,8 @@ struct PostViewModel {
     var thumbnail: String?
     var thumbnail_width: Int?
     var thumbnail_height: Int?
+    // media like youtube
+    var mediaContent: String?
     
     init(dataModel: Post) {
         self.author = dataModel.author
@@ -24,5 +26,6 @@ struct PostViewModel {
         self.thumbnail = dataModel.thumbnail
         self.thumbnail_width = dataModel.thumbnail_width
         self.thumbnail_height = dataModel.thumbnail_height
+        self.mediaContent = dataModel.media_embed?.content
     }
 }

@@ -16,6 +16,7 @@ struct Post {
     let thumbnail: String?
     let thumbnail_width: Int?
     let thumbnail_height: Int?
+    let media_embed: MediaEmbed?
     
     enum CodingKeys: String, CodingKey {
         case data
@@ -28,6 +29,16 @@ struct Post {
         case thumbnail
         case thumbnail_width
         case thumbnail_height
+        case media_embed
+    }
+    
+    struct MediaEmbed: Decodable {
+        
+        let content: String
+        
+        enum CodingKeys: String, CodingKey {
+            case content
+        }
     }
 }
 
@@ -42,5 +53,6 @@ extension Post: Decodable {
         thumbnail = try? dataInfo.decode(String.self, forKey: .thumbnail)
         thumbnail_width = try? dataInfo.decode(Int.self, forKey: .thumbnail_width)
         thumbnail_height = try? dataInfo.decode(Int.self, forKey: .thumbnail_height)
+        media_embed = try? dataInfo.decode(MediaEmbed.self, forKey: .media_embed)
     }
 }

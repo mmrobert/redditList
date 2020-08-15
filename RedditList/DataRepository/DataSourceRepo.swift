@@ -19,8 +19,8 @@ class DataSourceRepo {
     
     private var posts: [Post] {
         didSet {
+            let newResult = Result42<[Post], Error>.success(posts)
             for listener in listeners {
-                let newResult = Result42<[Post], Error>.success(posts)
                 listener(newResult)
             }
         }
@@ -28,8 +28,8 @@ class DataSourceRepo {
     private var fetchErr: Error? {
         didSet {
             if let err = fetchErr {
+                let newResult = Result42<[Post], Error>.failure(err)
                 for listener in listeners {
-                    let newResult = Result42<[Post], Error>.failure(err)
                     listener(newResult)
                 }
             }

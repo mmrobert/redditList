@@ -17,8 +17,8 @@ class PostsListViewModel {
     
     private var postsList: [PostViewModel] {
         didSet {
+            let newResult = Result42<[PostViewModel], Error>.success(postsList)
             for listener in listeners {
-                let newResult = Result42<[PostViewModel], Error>.success(postsList)
                 listener(newResult)
             }
         }
@@ -27,8 +27,8 @@ class PostsListViewModel {
     private var err: Error? {
         didSet {
             if let err = err {
+                let newResult = Result42<[PostViewModel], Error>.failure(err)
                 for listener in listeners {
-                    let newResult = Result42<[PostViewModel], Error>.failure(err)
                     listener(newResult)
                 }
             }
