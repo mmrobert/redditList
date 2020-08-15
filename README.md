@@ -11,4 +11,4 @@ Loblaws
     
                               DataModel
                   (using)         |            (binding)               (binding)
-     NetworkAPI <---------- DataSource Repo  ------------------- ViewModel --------------- View(controller, client)
+     NetworkAPI <---------- DataSource Repo  ------------------- ViewModel ------------------ View(controller, client)
