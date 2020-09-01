@@ -54,6 +54,12 @@ class PostsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == postList.count - 1 {
+            dataRepo.fetchNextPosts(queryParas: ["after": "t3_icpc67"])
+        }
+    }
 
     // MARK: - Navigation
 

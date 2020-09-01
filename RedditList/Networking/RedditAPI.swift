@@ -25,6 +25,7 @@ enum RedditAPI {
     
     // for each endpoind of backend
     case posts(queryParas: [String:String]?, bodyParas: [String:String]?)
+    case nextPosts(queryParas: [String:String]?, bodyParas: [String:String]?)
     
     // MARK: - base URL
     var baseURL: String {
@@ -32,12 +33,15 @@ enum RedditAPI {
         default:
             return "https://www.reddit.com"
         }
+        // https://www.reddit.com/r/swift/.json
     }
     
     // MARK: - RequestMethod
     var method: RequestMethod {
         switch self {
         case .posts( _, _):
+            return .get
+        case .nextPosts( _, _):
             return .get
         }
     }
@@ -46,6 +50,8 @@ enum RedditAPI {
     var path: String {
         switch self {
         case .posts( _, _):
+            return "/r/swift/.json"
+        case .nextPosts( _, _):
             return "/r/swift/.json"
         }
     }
@@ -61,6 +67,14 @@ enum RedditAPI {
             } else {
                 return nil
             }
+        case .nextPosts(let queryParas, _):
+            if let _queryParas = queryParas {
+                return _queryParas.map({
+                    URLQueryItem(name: $0.key, value: $0.value)
+                })
+            } else {
+                return nil
+            }
         }
     }
     
@@ -68,6 +82,8 @@ enum RedditAPI {
     var bodyParameters: [String:String]? {
         switch self {
         case .posts( _, let bodyParas):
+            return bodyParas
+        case .nextPosts( _, let bodyParas):
             return bodyParas
         }
     }

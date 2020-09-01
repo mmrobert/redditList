@@ -68,4 +68,30 @@ class DataSourceRepo {
             self.fetchErr = error
         }
     }
+    
+    func fetchNextPosts(queryParas: [String:String]) {
+        let nextPostRouter = RedditAPI.nextPosts(queryParas: queryParas, bodyParas: nil)
+        do {
+            let netRequest = try nextPostRouter.getURLRequest()
+            nextPostRouter.netWorks(request: netRequest) { [unowned self] result in
+                switch result {
+                case .success(let data):
+                    do {
+                        let decoder = JSONDecoder()
+                        let jsonData = try decoder.decode(Posts.self, from: data)
+                        
+                        let temp = self.posts + jsonData.posts
+                    
+                        self.posts = temp
+                    } catch let errData {
+                        self.fetchErr = errData
+                    }
+                case .failure(let err):
+                    self.fetchErr = err
+                }
+            }
+        } catch let error {
+            self.fetchErr = error
+        }
+    }
 }

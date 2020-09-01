@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B761B4B24F6D22700A017A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B761B4D24F6D22700A017A9 /* Localizable.strings */; };
 		9B842DE124E467FF00565652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B842DE024E467FF00565652 /* AppDelegate.swift */; };
 		9B842DE624E467FF00565652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B842DE424E467FF00565652 /* Main.storyboard */; };
 		9B842DE824E4680300565652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B842DE724E4680300565652 /* Assets.xcassets */; };
@@ -41,6 +42,10 @@
 		33E8D8FDD2EAF366F346AEF5 /* Pods-RedditList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditList.debug.xcconfig"; path = "Target Support Files/Pods-RedditList/Pods-RedditList.debug.xcconfig"; sourceTree = "<group>"; };
 		6567C3DBCE9016D4B1104700 /* Pods-RedditList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditList.release.xcconfig"; path = "Target Support Files/Pods-RedditList/Pods-RedditList.release.xcconfig"; sourceTree = "<group>"; };
 		828DD65E9ACCBB54F8373FB7 /* Pods_RedditListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B761B4724F6D0A000A017A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		9B761B4824F6D0A000A017A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		9B761B4C24F6D22700A017A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9B761B4E24F6D24800A017A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B842DDD24E467FF00565652 /* RedditList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B842DE024E467FF00565652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B842DE524E467FF00565652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 				9BCD100524E4CE0D00A05994 /* DataModels */,
 				9BCD100424E4CDA100A05994 /* DataRepository */,
 				9BCD100124E4BFC000A05994 /* Networking */,
+				9B761B4D24F6D22700A017A9 /* Localizable.strings */,
 			);
 			path = RedditList;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9B842DD424E467FF00565652;
 			productRefGroup = 9B842DDE24E467FF00565652 /* Products */;
@@ -291,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B842DEB24E4680300565652 /* LaunchScreen.storyboard in Resources */,
+				9B761B4B24F6D22700A017A9 /* Localizable.strings in Resources */,
 				9B842DE824E4680300565652 /* Assets.xcassets in Resources */,
 				9B842DE624E467FF00565652 /* Main.storyboard in Resources */,
 			);
@@ -408,10 +416,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9B761B4D24F6D22700A017A9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B761B4C24F6D22700A017A9 /* zh-Hans */,
+				9B761B4E24F6D24800A017A9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9B842DE424E467FF00565652 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9B842DE524E467FF00565652 /* Base */,
+				9B761B4724F6D0A000A017A9 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -420,6 +438,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9B842DEA24E4680300565652 /* Base */,
+				9B761B4824F6D0A000A017A9 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -431,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -492,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
